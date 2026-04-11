@@ -16,23 +16,25 @@ legal_editor_task = Task(
         
         1. Review the retrieved IPC sections.
         2. Review the retrieved Precedent Cases.
-        3. Format them strictly using Markdown as requested in the expected output.
+        3. Format them using Markdown as requested in the expected output.
         4. Add a polite concluding sentence advising the client to consult a human lawyer.
         """
         ),
     expected_output=(
         """
-        A beautifully formatted Markdown response that follows this EXACT structure:
+        A beautifully formatted Markdown response that follows this structure:
 
         # Legal Opinion Summary
+        
+        "A detailed paragraph explaining the user importance and consequence of the current issue."
 
         ## 1. Applicable Legal Sections
         * **[Section Number]**: [Brief description of what this section covers]
         * **[Section Number]**: [Brief description]
 
         ## 2. Relevant Precedent Cases
-        * **[Case Name]**: [Few sentence summary of the ruling with link to case detail]
-        * **[Case Name]**: [Few sentence summary with link to case detail]
+        * **[Case Name]**: [detailed summary of the precedent case followed by link to case detail]
+        * **[Case Name]**: [detailed summary of the precedent case followed by link to case detail]
 
         ## 3. Conclusion
         [A brief summary of how these laws apply to the user's specific situation]
