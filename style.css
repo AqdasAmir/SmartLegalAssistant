@@ -1,0 +1,178 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+    --gold:    #C9A84C;
+    --gold-lt: #E2C47A;
+    --dark:    #0D0F14;
+    --panel:   #13161D;
+    --border:  #1F2430;
+    --text:    #D6D9E0;
+    --muted:   #6B7280;
+}
+
+html, body, [class*="css"] {
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--dark);
+    color: var(--text);
+}
+
+.stApp {
+    background: radial-gradient(ellipse at 20% 0%, #1a1505 0%, var(--dark) 50%);
+    background-image: url("https://tse4.mm.bing.net/th/id/OIP.A9z7lWJAxKVgru18UohzdgHaEK?w=1244&h=700&rs=1&pid=ImgDetMain&o=7&rm=3");             
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
+
+#MainMenu, footer, header { visibility: hidden; }
+
+.legal-header {
+    text-align: center;
+    padding: 3.5rem 1rem 2rem;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 2.5rem;
+}
+
+.legal-header .badge {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 0.3rem 0.9rem;
+    border-radius: 2px;
+    margin-bottom: 1.2rem;
+}
+
+.legal-header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.4rem, 5vw, 4rem);
+    font-weight: 700;
+    color: #F0EAD6;
+    letter-spacing: 0.04em;
+    margin: 0 0 0.6rem;
+    line-height: 1.1;
+}
+
+.legal-header h1 span { color: var(--gold); }
+
+.legal-header p {
+    font-size: 0.95rem;
+    color: var(--muted);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+.pills {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin: 1.4rem 0 0;
+}
+
+.pill {
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.2);
+    color: var(--gold-lt);
+    font-size: 0.72rem;
+    padding: 0.3rem 0.8rem;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+}
+
+.card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 2rem 2.2rem;
+    margin-bottom: 1.5rem;
+}
+
+.card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--gold);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+}
+
+textarea {
+    background: #0a0c10 !important;
+    border: 1px solid var(--border) !important;
+    border-radius: 6px !important;
+    color: var(--text) !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-size: 0.92rem !important;
+    line-height: 1.7 !important;
+    padding: 1rem !important;
+    transition: border-color 0.2s ease !important;
+}
+
+textarea:focus {
+    border-color: var(--gold) !important;
+    box-shadow: 0 0 0 2px rgba(201,168,76,0.1) !important;
+}
+
+[data-testid="stFormSubmitButton"] > button {
+    width: 100%;
+    background: linear-gradient(135deg, #C9A84C, #A8873A) !important;
+    color: #0D0F14 !important;
+    font-family: 'DM Sans', sans-serif !important;
+    font-weight: 600 !important;
+    font-size: 0.9rem !important;
+    letter-spacing: 0.1em !important;
+    text-transform: uppercase !important;
+    border: none !important;
+    border-radius: 6px !important;
+    padding: 0.75rem 2rem !important;
+    margin-top: 0.8rem !important;
+    transition: opacity 0.2s ease !important;
+}
+
+[data-testid="stFormSubmitButton"] > button:hover {
+    opacity: 0.85 !important;
+}
+
+.stSuccess {
+    background: rgba(201,168,76,0.08) !important;
+    border: 1px solid rgba(201,168,76,0.3) !important;
+    border-radius: 6px !important;
+    color: var(--gold-lt) !important;
+}
+
+.result-card {
+    background: #0a0c10;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 6px;
+    padding: 1.8rem 2rem;
+    margin-top: 1rem;
+    line-height: 1.8;
+    font-size: 0.93rem;
+    color: var(--text);
+}
+
+.gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 2rem 0;
+    opacity: 0.4;
+}
+
+.legal-footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: var(--muted);
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+}
