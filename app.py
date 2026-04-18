@@ -1,3 +1,4 @@
+import time
 import os
 import threading
 os.environ["OTEL_SDK_DISABLED"] = "true"
@@ -17,6 +18,17 @@ def load_css(file):
 def load_crew():
     from crew import legal_assistant_crew
     return legal_assistant_crew
+
+def run_with_retry(crew, user_input, retries=3, wait=10):
+    for attempt in range(retries):
+        try:
+            return crew.kickoff(inputs={"user_input": user_input})
+        except Exception as e:
+            if "RateLimitError" in str(e) and attempt < retries - 1:
+                st.warning(f"⏳ Rate limit hit. Retrying in {wait} seconds...")
+                time.sleep(wait)
+            else:
+                raise e
 
 threading.Thread(target=load_crew, daemon=True).start()
 
@@ -59,8 +71,12 @@ with col2:
             st.warning("⚠️  Please describe your legal issue before submitting.")
         else:
             with st.spinner("🔍  Analyzing your case — this may take a moment..."):
-                crew = load_crew()
-                result = crew.kickoff(inputs={"user_input": user_input})
+                try:
+                    crew = load_crew()
+                    result = run_with_retry(crew, user_input)
+                except Exception as e:
+                    st.error("⚠️ The assistant is currently busy due to high demand. Please wait a minute and try again.")
+                    st.stop()
 
             st.success("✅  Analysis complete.")
             st.markdown('<div class="gold-divider"></div>', unsafe_allow_html=True)
